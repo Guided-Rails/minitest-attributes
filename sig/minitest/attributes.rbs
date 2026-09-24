@@ -1,0 +1,13 @@
+module Minitest
+  module Attributes
+    VERSION: String
+    TIME_DELTA: Integer
+
+    def assert_attributes: (untyped record, **untyped expected_attributes) -> void
+
+    private
+
+    def assert_attribute: (untyped record, Symbol attribute, untyped expected_value) -> void
+    def attribute_message: (untyped record, Symbol attribute, untyped expected_value, untyped actual_value) -> String
+  end
+end

@@ -1,0 +1,21 @@
+AllCops:
+  TargetRubyVersion: 3.2
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 80
+  Exclude:
+    - "minitest-attributes.gemspec"
+    - "test/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "test/**/*"
+
+Metrics/MethodLength:
+  Enabled: false
