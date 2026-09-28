@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `assert_hash_attributes(hash, **expected)` assertion, applying the same comparisons to hash values
+  - Keys are looked up as given, then as strings, so symbol keys match parsed JSON
+  - A missing key fails, even when the expected value is `nil`
+
 ## [0.1.0] - 2026-09-24
 
 ### Added
