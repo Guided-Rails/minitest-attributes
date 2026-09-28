@@ -27,7 +27,7 @@ Then run:
 bundle install
 ```
 
-Requiring the gem mixes `assert_attributes` into `Minitest::Assertions`, so it is available in every `Minitest::Test`, `ActiveSupport::TestCase`, and integration test. Bundler requires it for you in a Rails app; otherwise add `require "minitest/attributes"` to your test helper.
+Requiring the gem mixes `assert_attributes` and `assert_hash_attributes` into `Minitest::Assertions`, so it is available in every `Minitest::Test`, `ActiveSupport::TestCase`, and integration test. Bundler requires it for you in a Rails app; otherwise add `require "minitest/attributes"` to your test helper.
 
 ## Usage
 
@@ -42,6 +42,25 @@ A mismatch fails with a message such as:
 
 ```
 Expected Person#last_name to be "Bubblegum", but was "Abadeer"
+```
+
+### Hashes
+
+`assert_hash_attributes` makes the same comparisons against the values of a hash. Each key is looked up as given and then as a string, so symbol keys also match parsed JSON:
+
+```ruby
+assert_hash_attributes(
+  JSON.parse(response.body),
+  "@type": "Person",
+  name: "Marceline",
+  nickname: nil
+)
+```
+
+A missing key fails with the hash's keys, even when the expected value is `nil`:
+
+```
+Expected hash to have key :nickname, but its keys were ["@type", "name"]
 ```
 
 ## Development
