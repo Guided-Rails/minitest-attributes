@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    minitest-attributes (0.1.0)
+    minitest-attributes (0.2.0)
       minitest (>= 5.16, < 7)
 
 GEM
